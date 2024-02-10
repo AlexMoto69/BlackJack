@@ -54,7 +54,7 @@
             this.PanelDrag.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelDrag.Location = new System.Drawing.Point(0, 0);
             this.PanelDrag.Name = "PanelDrag";
-            this.PanelDrag.Size = new System.Drawing.Size(1047, 35);
+            this.PanelDrag.Size = new System.Drawing.Size(887, 35);
             this.PanelDrag.TabIndex = 0;
             this.PanelDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelDrag_MouseDown);
             this.PanelDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelDrag_MouseMove);
@@ -65,7 +65,7 @@
             this.ControlBox.Controls.Add(this.Minimize);
             this.ControlBox.Controls.Add(this.Window);
             this.ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ControlBox.Location = new System.Drawing.Point(937, 0);
+            this.ControlBox.Location = new System.Drawing.Point(777, 0);
             this.ControlBox.Name = "ControlBox";
             this.ControlBox.Size = new System.Drawing.Size(110, 35);
             this.ControlBox.TabIndex = 0;
@@ -124,7 +124,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1047, 746);
+            this.panel2.Size = new System.Drawing.Size(887, 511);
             this.panel2.TabIndex = 2;
             // 
             // panelStart
@@ -133,7 +133,7 @@
             this.panelStart.AutoSize = true;
             this.panelStart.Controls.Add(this.LabelText);
             this.panelStart.Controls.Add(this.ButtonStart);
-            this.panelStart.Location = new System.Drawing.Point(258, 138);
+            this.panelStart.Location = new System.Drawing.Point(178, 20);
             this.panelStart.Name = "panelStart";
             this.panelStart.Size = new System.Drawing.Size(484, 427);
             this.panelStart.TabIndex = 2;
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1047, 781);
+            this.ClientSize = new System.Drawing.Size(887, 546);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PanelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

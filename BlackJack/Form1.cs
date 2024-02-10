@@ -77,6 +77,7 @@ namespace BlackJack
             {
                 Left += e.X - lastPoint.X;
                 Top += e.Y - lastPoint.Y;
+                ///belesti pula
             }
         }
     }

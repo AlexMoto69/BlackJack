@@ -8,3 +8,13 @@ C:\Users\Alex\source\repos\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.Genera
 C:\Users\Alex\source\repos\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.CoreCompileInputs.cache
 C:\Users\Alex\source\repos\BlackJack\BlackJack\obj\Debug\BlackJack.exe
 C:\Users\Alex\source\repos\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\BlackJack.exe.config
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\BlackJack.exe
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\BlackJack.pdb
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.AssemblyReference.cache
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Form1.resources
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Properties.Resources.resources
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.GenerateResource.cache
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.CoreCompileInputs.cache
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.exe
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
