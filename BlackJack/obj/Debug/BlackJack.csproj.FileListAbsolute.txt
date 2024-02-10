@@ -18,3 +18,4 @@ C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.CoreCompileInputs.cache
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.exe
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Game.resources

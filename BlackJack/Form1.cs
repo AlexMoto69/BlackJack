@@ -77,8 +77,15 @@ namespace BlackJack
             {
                 Left += e.X - lastPoint.X;
                 Top += e.Y - lastPoint.Y;
-                ///belesti pula
             }
+        }
+
+        private void ButtonStart_Click(object sender, EventArgs e)
+        {
+            Game Game = new Game();
+            Game.Show();
+            this.Hide();
+
         }
     }
 }
