@@ -22,6 +22,14 @@ namespace BlackJack
             InitializeComponent();
             labelBet.BackColor = Color.Transparent;
             labelInitial.BackColor = Color.Transparent;
+            MoneyText.Text = userSum.ToString();
+            MoneyBet.Text = betsum.ToString();
+        }
+
+        private void UpdateMoney()
+        {
+            MoneyText.Text = userSum.ToString();
+            MoneyBet.Text = betsum.ToString();
         }
 
         private void Close_Click_1(object sender, EventArgs e)
@@ -59,28 +67,32 @@ namespace BlackJack
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button10_Click(object sender, EventArgs e)
         {
             betsum += 10;
             userSum -= 10;
+            UpdateMoney();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button25_Click(object sender, EventArgs e)
         {
             betsum += 25;
             userSum -= 25;
+            UpdateMoney();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button50_Click(object sender, EventArgs e)
         {
             betsum += 50;
             userSum -= 50;
+            UpdateMoney();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button100_Click(object sender, EventArgs e)
         {
             betsum += 100;
             userSum -= 100;
+            UpdateMoney();
         }
     }
 }

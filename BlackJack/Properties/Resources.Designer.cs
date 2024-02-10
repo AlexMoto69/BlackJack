@@ -63,6 +63,16 @@ namespace BlackJack.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_chip {
+            get {
+                object obj = ResourceManager.GetObject("black_chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blue_chip {
             get {
                 object obj = ResourceManager.GetObject("blue_chip", resourceCulture);
@@ -96,6 +106,26 @@ namespace BlackJack.Properties {
         internal static System.Drawing.Bitmap Minimize {
             get {
                 object obj = ResourceManager.GetObject("Minimize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap orange_chip {
+            get {
+                object obj = ResourceManager.GetObject("orange_chip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_chip {
+            get {
+                object obj = ResourceManager.GetObject("red_chip", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
