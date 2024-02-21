@@ -26,7 +26,9 @@ namespace BlackJack
             MoneyBet.Text = betsum.ToString();
         }
 
-        private void UpdateMoney()
+        int[] cardVect = new int[55];
+
+    private void UpdateMoney()
         {
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
