@@ -31,10 +31,11 @@ namespace BlackJack
             labelInitial.BackColor = Color.Transparent;
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
+            
             InitializeDeck();
             for (int i = 0; i < 2; i++)
             {
-                int number = random.Next(0, deck.Count-1);
+                int number = random.Next(0, deck.Count-2);
                 if (deck[number].Item2 == false)
                 {
                     playerHand.Add(deck[number]);
@@ -49,11 +50,11 @@ namespace BlackJack
             }
             for (int i = 0; i < 2; i++)
             {
-                int number = random.Next(0, deck.Count-1);
+                int number = random.Next(0, deck.Count-2);
                 if (deck[number].Item2 == false)
                 {
                     dealerHand.Add(deck[number]);
-                    dealerScore += GetCardValue(deck[number].Item1);
+                    
                     deck[number] = (deck[number].Item1, true);
                     if(i == 1)
                     {
@@ -61,20 +62,36 @@ namespace BlackJack
                     }
                     else
                     {
+                        dealerScore += GetCardValue(deck[number].Item1);
                         AddPictureBox(number, new Point(this.Width*2/7 + i * 50, this.Height*1/9));
                     }
                 }
                 else
                 {
                     i--;
-                }   
+                }  
+                
             }
+            labelPlayerScore.Text = playerScore.ToString();
+            labelDealerScore.Text = dealerScore.ToString();
         }
         
         private int GetCardValue(string name)
         {
-            string number = name.Substring(name.Length-6, name.Length-7);
-            return int.Parse(number);
+            string number = name.Substring(name.Length-5, 1);
+            if (number == "A")
+                return 11;
+            int number1  = int.Parse(number);
+                if (number1 == 0)
+                {
+                    return 10;
+
+                }
+                else
+                {
+                    return number1;
+                }
+
         }
         private void AddPictureBox(int x, Point Position)
         {

@@ -43,6 +43,10 @@
             this.button25 = new System.Windows.Forms.Button();
             this.labelBet = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
+            this.labelPlayerScore = new System.Windows.Forms.Label();
+            this.labelDealerScore = new System.Windows.Forms.Label();
+            this.buttonHIT = new System.Windows.Forms.Button();
+            this.buttonStand = new System.Windows.Forms.Button();
             this.PanelDrag.SuspendLayout();
             this.ControlBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
@@ -115,6 +119,10 @@
             // 
             this.table.BackgroundImage = global::BlackJack.Properties.Resources.table;
             this.table.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.table.Controls.Add(this.buttonStand);
+            this.table.Controls.Add(this.buttonHIT);
+            this.table.Controls.Add(this.labelDealerScore);
+            this.table.Controls.Add(this.labelPlayerScore);
             this.table.Controls.Add(this.MoneyBet);
             this.table.Controls.Add(this.MoneyText);
             this.table.Controls.Add(this.button100);
@@ -251,6 +259,55 @@
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // labelPlayerScore
+            // 
+            this.labelPlayerScore.AutoSize = true;
+            this.labelPlayerScore.BackColor = System.Drawing.Color.Transparent;
+            this.labelPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelPlayerScore.Location = new System.Drawing.Point(450, 567);
+            this.labelPlayerScore.Name = "labelPlayerScore";
+            this.labelPlayerScore.Size = new System.Drawing.Size(70, 25);
+            this.labelPlayerScore.TabIndex = 12;
+            this.labelPlayerScore.Text = "label1";
+            // 
+            // labelDealerScore
+            // 
+            this.labelDealerScore.AutoSize = true;
+            this.labelDealerScore.BackColor = System.Drawing.Color.Transparent;
+            this.labelDealerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDealerScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelDealerScore.Location = new System.Drawing.Point(450, 38);
+            this.labelDealerScore.Name = "labelDealerScore";
+            this.labelDealerScore.Size = new System.Drawing.Size(70, 25);
+            this.labelDealerScore.TabIndex = 13;
+            this.labelDealerScore.Text = "label1";
+            // 
+            // buttonHIT
+            // 
+            this.buttonHIT.BackColor = System.Drawing.Color.Red;
+            this.buttonHIT.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.buttonHIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHIT.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonHIT.Location = new System.Drawing.Point(888, 317);
+            this.buttonHIT.Name = "buttonHIT";
+            this.buttonHIT.Size = new System.Drawing.Size(84, 34);
+            this.buttonHIT.TabIndex = 14;
+            this.buttonHIT.Text = "Hit";
+            this.buttonHIT.UseVisualStyleBackColor = false;
+            // 
+            // buttonStand
+            // 
+            this.buttonStand.BackColor = System.Drawing.Color.Green;
+            this.buttonStand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStand.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonStand.Location = new System.Drawing.Point(888, 379);
+            this.buttonStand.Name = "buttonStand";
+            this.buttonStand.Size = new System.Drawing.Size(84, 34);
+            this.buttonStand.TabIndex = 15;
+            this.buttonStand.Text = "Stand";
+            this.buttonStand.UseVisualStyleBackColor = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +345,9 @@
         private System.Windows.Forms.Label MoneyBet;
         private System.Windows.Forms.Label MoneyText;
         private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Label labelPlayerScore;
+        private System.Windows.Forms.Label labelDealerScore;
+        private System.Windows.Forms.Button buttonStand;
+        private System.Windows.Forms.Button buttonHIT;
     }
 }
