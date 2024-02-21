@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.PanelDrag = new System.Windows.Forms.Panel();
             this.ControlBox = new System.Windows.Forms.Panel();
+            this.Close = new System.Windows.Forms.PictureBox();
+            this.Minimize = new System.Windows.Forms.PictureBox();
+            this.Window = new System.Windows.Forms.PictureBox();
             this.ButtonStart = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelStart = new System.Windows.Forms.Panel();
             this.LabelText = new System.Windows.Forms.Label();
-            this.Close = new System.Windows.Forms.PictureBox();
-            this.Minimize = new System.Windows.Forms.PictureBox();
-            this.Window = new System.Windows.Forms.PictureBox();
             this.PanelDrag.SuspendLayout();
             this.ControlBox.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panelStart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Window)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panelStart.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelDrag
@@ -54,7 +54,7 @@
             this.PanelDrag.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelDrag.Location = new System.Drawing.Point(0, 0);
             this.PanelDrag.Name = "PanelDrag";
-            this.PanelDrag.Size = new System.Drawing.Size(887, 35);
+            this.PanelDrag.Size = new System.Drawing.Size(1083, 35);
             this.PanelDrag.TabIndex = 0;
             this.PanelDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelDrag_MouseDown);
             this.PanelDrag.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelDrag_MouseMove);
@@ -65,52 +65,10 @@
             this.ControlBox.Controls.Add(this.Minimize);
             this.ControlBox.Controls.Add(this.Window);
             this.ControlBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ControlBox.Location = new System.Drawing.Point(777, 0);
+            this.ControlBox.Location = new System.Drawing.Point(973, 0);
             this.ControlBox.Name = "ControlBox";
             this.ControlBox.Size = new System.Drawing.Size(110, 35);
             this.ControlBox.TabIndex = 0;
-            // 
-            // ButtonStart
-            // 
-            this.ButtonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ButtonStart.Font = new System.Drawing.Font("MV Boli", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonStart.Location = new System.Drawing.Point(35, 185);
-            this.ButtonStart.Name = "ButtonStart";
-            this.ButtonStart.Size = new System.Drawing.Size(414, 219);
-            this.ButtonStart.TabIndex = 1;
-            this.ButtonStart.Text = "Press to Play";
-            this.ButtonStart.UseVisualStyleBackColor = true;
-            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panelStart);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 35);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(887, 511);
-            this.panel2.TabIndex = 2;
-            // 
-            // panelStart
-            // 
-            this.panelStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelStart.AutoSize = true;
-            this.panelStart.Controls.Add(this.LabelText);
-            this.panelStart.Controls.Add(this.ButtonStart);
-            this.panelStart.Location = new System.Drawing.Point(178, 20);
-            this.panelStart.Name = "panelStart";
-            this.panelStart.Size = new System.Drawing.Size(484, 427);
-            this.panelStart.TabIndex = 2;
-            // 
-            // LabelText
-            // 
-            this.LabelText.AutoSize = true;
-            this.LabelText.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelText.Location = new System.Drawing.Point(88, 40);
-            this.LabelText.Name = "LabelText";
-            this.LabelText.Size = new System.Drawing.Size(327, 90);
-            this.LabelText.TabIndex = 2;
-            this.LabelText.Text = "Welcome!";
             // 
             // Close
             // 
@@ -149,12 +107,54 @@
             this.Window.TabStop = false;
             this.Window.Click += new System.EventHandler(this.Window_Click);
             // 
+            // ButtonStart
+            // 
+            this.ButtonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonStart.Font = new System.Drawing.Font("MV Boli", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonStart.Location = new System.Drawing.Point(35, 185);
+            this.ButtonStart.Name = "ButtonStart";
+            this.ButtonStart.Size = new System.Drawing.Size(414, 219);
+            this.ButtonStart.TabIndex = 1;
+            this.ButtonStart.Text = "Press to Play";
+            this.ButtonStart.UseVisualStyleBackColor = true;
+            this.ButtonStart.Click += new System.EventHandler(this.ButtonStart_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panelStart);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 35);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1083, 685);
+            this.panel2.TabIndex = 2;
+            // 
+            // panelStart
+            // 
+            this.panelStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelStart.AutoSize = true;
+            this.panelStart.Controls.Add(this.LabelText);
+            this.panelStart.Controls.Add(this.ButtonStart);
+            this.panelStart.Location = new System.Drawing.Point(276, 107);
+            this.panelStart.Name = "panelStart";
+            this.panelStart.Size = new System.Drawing.Size(484, 427);
+            this.panelStart.TabIndex = 2;
+            // 
+            // LabelText
+            // 
+            this.LabelText.AutoSize = true;
+            this.LabelText.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelText.Location = new System.Drawing.Point(88, 40);
+            this.LabelText.Name = "LabelText";
+            this.LabelText.Size = new System.Drawing.Size(327, 90);
+            this.LabelText.TabIndex = 2;
+            this.LabelText.Text = "Welcome!";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(887, 546);
+            this.ClientSize = new System.Drawing.Size(1083, 720);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.PanelDrag);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -164,13 +164,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PanelDrag.ResumeLayout(false);
             this.ControlBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Window)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelStart.ResumeLayout(false);
             this.panelStart.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Minimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Window)).EndInit();
             this.ResumeLayout(false);
 
         }
