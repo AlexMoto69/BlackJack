@@ -15,15 +15,17 @@ namespace BlackJack
 {
     public partial class Game : Form
     {
-        List<(string, bool)> deck = new List<(string, bool)>();
         List<(string, bool)> playerHand = new List<(string, bool)>();
         List<(string, bool)> dealerHand = new List<(string, bool)>();
+        Deck deck = new Deck();
+        List<PictureBox> CardBoxes = new List<PictureBox>();
         private Point lastPoint;
         private int betsum = 0;
         private int userSum = 5000;
         int playerScore = 0;
         int dealerScore = 0;
-        Random random = new Random();
+        int hidenCard;
+        int ivalue = 100;
         public Game()
         {
             InitializeComponent();
@@ -31,49 +33,7 @@ namespace BlackJack
             labelInitial.BackColor = Color.Transparent;
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
-            
-            InitializeDeck();
-            for (int i = 0; i < 2; i++)
-            {
-                int number = random.Next(0, deck.Count-2);
-                if (deck[number].Item2 == false)
-                {
-                    playerHand.Add(deck[number]);
-                    playerScore += GetCardValue(deck[number].Item1);
-                    deck[number] = (deck[number].Item1, true);
-                    AddPictureBox(number, new Point(this.Width*2/7 + i * 50, this.Height*5/9));
-                }
-                else
-                {
-                    i--;
-                }
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                int number = random.Next(0, deck.Count-2);
-                if (deck[number].Item2 == false)
-                {
-                    dealerHand.Add(deck[number]);
-                    
-                    deck[number] = (deck[number].Item1, true);
-                    if(i == 1)
-                    {
-                        AddPictureBox(deck.Count-1, new Point(this.Width*2/7 + i * 50, this.Height*1/9));
-                    }
-                    else
-                    {
-                        dealerScore += GetCardValue(deck[number].Item1);
-                        AddPictureBox(number, new Point(this.Width*2/7 + i * 50, this.Height*1/9));
-                    }
-                }
-                else
-                {
-                    i--;
-                }  
-                
-            }
-            labelPlayerScore.Text = playerScore.ToString();
-            labelDealerScore.Text = dealerScore.ToString();
+            startAgain();
         }
         
         private int GetCardValue(string name)
@@ -93,9 +53,8 @@ namespace BlackJack
                 }
 
         }
-        private void AddPictureBox(int x, Point Position)
+        private void AddPictureBox(string imageName, Point Position)
         {
-            string imageName = deck[x].Item1;
                 try
                 {
                     PictureBox pictureBox = new PictureBox();
@@ -106,7 +65,7 @@ namespace BlackJack
                     pictureBox.BackColor = Color.Transparent;
                     this.Controls.Add(pictureBox);
                     pictureBox.BringToFront();
-
+                    CardBoxes.Add(pictureBox);
                     Timer slideTimer = new Timer();
                     slideTimer.Interval = 5;
                     slideTimer.Tick += (sender, e) =>
@@ -124,12 +83,14 @@ namespace BlackJack
                     MessageBox.Show($"An error occurred while loading the image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
-        private void UpdateMoney()
+
+        private void UpdateLabels()
         {
+            labelPlayerScore.Text = playerScore.ToString();
+            labelDealerScore.Text = (dealerScore-hidenCard).ToString();
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
         }
-
         private void Close_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -169,85 +130,132 @@ namespace BlackJack
         {
             betsum += 10;
             userSum -= 10;
-            UpdateMoney();
+            UpdateLabels();
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
             betsum += 25;
             userSum -= 25;
-            UpdateMoney();
+            UpdateLabels();
         }
 
         private void button50_Click(object sender, EventArgs e)
         {
             betsum += 50;
             userSum -= 50;
-            UpdateMoney();
+            UpdateLabels();
         }
 
         private void button100_Click(object sender, EventArgs e)
         {
             betsum += 100;
             userSum -= 100;
-            UpdateMoney();
+            UpdateLabels();
         }
 
-        private void InitializeDeck()
+        private void buttonStand_Click(object sender, EventArgs e)
         {
-            deck.Add(("2IR02.png", false));
-            deck.Add(("3IR03.png", false));
-            deck.Add(("4IR04.png", false));
-            deck.Add(("5IR05.png", false));
-            deck.Add(("6IR06.png", false));
-            deck.Add(("7IR07.png", false));
-            deck.Add(("8IR08.png", false));
-            deck.Add(("9IR09.png", false));
-            deck.Add(("10IR10.png", false));
-            deck.Add(("AIRA.png", false));
-            deck.Add(("JIR10.png", false));
-            deck.Add(("QIR10.png", false));
-            deck.Add(("KIR10.png", false));
-            deck.Add(("2T02.png", false));
-            deck.Add(("3T03.png", false));
-            deck.Add(("4T04.png", false));
-            deck.Add(("5T05.png", false));
-            deck.Add(("6T06.png", false));
-            deck.Add(("7T07.png", false));
-            deck.Add(("8T08.png", false));
-            deck.Add(("9T09.png", false));
-            deck.Add(("10T10.png", false));
-            deck.Add(("ATA.png", false));
-            deck.Add(("JT10.png", false));
-            deck.Add(("QT10.png", false));
-            deck.Add(("KT10.png", false));
-            deck.Add(("2R02.png", false));
-            deck.Add(("3R03.png", false));
-            deck.Add(("4R04.png", false));
-            deck.Add(("5R05.png", false));
-            deck.Add(("6R06.png", false));
-            deck.Add(("7R07.png", false));
-            deck.Add(("8R08.png", false));
-            deck.Add(("9R09.png", false));
-            deck.Add(("10R10.png", false));
-            deck.Add(("ARA.png", false));
-            deck.Add(("JR10.png", false));
-            deck.Add(("QR10.png", false));
-            deck.Add(("KR10.png", false));
-            deck.Add(("2IN02.png", false));
-            deck.Add(("3IN03.png", false));
-            deck.Add(("4IN04.png", false));
-            deck.Add(("5IN05.png", false));
-            deck.Add(("6IN06.png", false));
-            deck.Add(("7IN07.png", false));
-            deck.Add(("8IN08.png", false));
-            deck.Add(("9IN09.png", false));
-            deck.Add(("10IN10.png", false));
-            deck.Add(("AINA.png", false));
-            deck.Add(("JIN10.png", false));
-            deck.Add(("QIN10.png", false));
-            deck.Add(("KIN10.png", false));
-            deck.Add(("back.png", false));
+            for (int i = 0; i < dealerHand.Count; i++)
+            {
+                dealerScore += GetCardValue(dealerHand[i].Item1);
+            }
+            while (dealerScore < 17)
+            {
+                   string dealerCard = deck.DrawCard();
+                   dealerHand.Add((dealerCard,false));
+                   dealerScore += GetCardValue(dealerCard);
+                   AddPictureBox(dealerCard, new Point(this.Width * 2 / 7 + ivalue, this.Height * 1 / 9));
+                   ivalue += 50;
+            }
+            if (dealerScore > 21 || dealerScore < playerScore)
+            {
+                userSum += betsum * 2;
+                betsum = 0;
+                MessageBox.Show("You won!");
+                UpdateLabels();
+                startAgain();
+            }
+            else if (dealerScore == playerScore)
+            {
+                userSum += betsum;
+                betsum = 0;
+                MessageBox.Show("It's a draw!");
+                UpdateLabels();
+                startAgain();
+            }
+            else
+            {
+                userSum -= betsum;
+                betsum = 0;
+                MessageBox.Show("You lost!");
+                UpdateLabels();
+                startAgain();
+            }
+        }
+
+        private void buttonHIT_Click(object sender, EventArgs e)
+        {
+            string playerCard = deck.DrawCard();
+            playerHand.Add((playerCard, false));
+            playerScore += GetCardValue(playerCard);
+            AddPictureBox(playerCard, new Point(this.Width * 2 / 7 + ivalue, this.Height * 5 / 9));
+            ivalue += 50;
+            UpdateLabels();
+            if(playerScore > 21)
+            {
+                userSum -= betsum;
+                betsum = 0;
+                MessageBox.Show("You lost!");
+                UpdateLabels();
+            }
+        }
+
+        private void revealHand()
+        {
+            for (int i = 0; i < dealerHand.Count; i++)
+            {
+                dealerScore += GetCardValue(dealerHand[i].Item1);
+                CardBoxes[i].Image = Image.FromFile(Application.StartupPath + "\\cards\\" + dealerHand[i].Item1);
+            }
+        }
+        private void startAgain()
+        {
+            playerScore = 0;
+            dealerScore = 0;
+            playerHand.Clear();
+            dealerHand.Clear();
+            for (int i = CardBoxes.Count - 1; i >= 0; i--)
+            {
+                this.Controls.Remove(CardBoxes[i]);
+                CardBoxes[i].Dispose();
+            }
+            CardBoxes.Clear();
+            ivalue = 100;
+            deck.ResetDeck();
+            for (int i = 0; i < 2; i++)
+            {
+                 string playerCard = deck.DrawCard();
+                 playerHand.Add((playerCard,false));
+                 playerScore += GetCardValue(playerCard);
+                 AddPictureBox(playerCard, new Point(this.Width * 2 / 7 + i * 50, this.Height * 5 / 9));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                string dealerCard = deck.DrawCard();
+                dealerHand.Add((dealerCard, false));
+                dealerScore += GetCardValue(dealerCard);
+                if (i == 1)
+                {
+                    AddPictureBox("back.png", new Point(this.Width * 2 / 7 + i * 50, this.Height * 1 / 9));
+                    hidenCard = GetCardValue(dealerCard);
+                }
+                else
+                {
+                    AddPictureBox(dealerCard, new Point(this.Width * 2 / 7 + i * 50, this.Height * 1 / 9));
+                }
+            }
+            UpdateLabels();
         }
     }
 }

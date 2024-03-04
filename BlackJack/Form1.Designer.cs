@@ -134,7 +134,7 @@
             this.panelStart.AutoSize = true;
             this.panelStart.Controls.Add(this.LabelText);
             this.panelStart.Controls.Add(this.ButtonStart);
-            this.panelStart.Location = new System.Drawing.Point(276, 107);
+            this.panelStart.Location = new System.Drawing.Point(276, 89);
             this.panelStart.Name = "panelStart";
             this.panelStart.Size = new System.Drawing.Size(484, 427);
             this.panelStart.TabIndex = 2;
