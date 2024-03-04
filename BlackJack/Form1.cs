@@ -82,7 +82,7 @@ namespace BlackJack
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            Game Game = new Game();
+            LoginForm Game = new LoginForm();
             Game.Show();
             this.Hide();
 

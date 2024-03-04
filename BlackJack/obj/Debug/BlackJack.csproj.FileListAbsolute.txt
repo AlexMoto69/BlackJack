@@ -30,3 +30,7 @@ C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.Ge
 C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.exe
 C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.pdb
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLogin.mdf
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLogin_log.ldf
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.LoginForm.resources
+C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Register.resources
