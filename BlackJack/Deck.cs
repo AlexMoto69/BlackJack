@@ -74,10 +74,10 @@ namespace BlackJack
         public string DrawCard()
         {
             Random random = new Random();
-            int index = random.Next(deck.Count);
+            int index = random.Next(deck.Count-1);
             while (deck[index].Item2)
             {
-                index = random.Next(deck.Count);
+                index = random.Next(deck.Count-1);
             }
             deck[index] = (deck[index].Item1, true);
             return deck[index].Item1;

@@ -154,12 +154,10 @@ namespace BlackJack
             UpdateLabels();
         }
 
-        private void buttonStand_Click(object sender, EventArgs e)
+        private async void buttonStand_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dealerHand.Count; i++)
-            {
-                dealerScore += GetCardValue(dealerHand[i].Item1);
-            }
+            revealHand();
+            await Task.Delay(1000);
             while (dealerScore < 17)
             {
                    string dealerCard = deck.DrawCard();
@@ -167,34 +165,32 @@ namespace BlackJack
                    dealerScore += GetCardValue(dealerCard);
                    AddPictureBox(dealerCard, new Point(this.Width * 2 / 7 + ivalue, this.Height * 1 / 9));
                    ivalue += 50;
+                   await Task.Delay(1000);
+                   UpdateLabels();
             }
+            await Task.Delay(1000);
             if (dealerScore > 21 || dealerScore < playerScore)
             {
                 userSum += betsum * 2;
                 betsum = 0;
                 MessageBox.Show("You won!");
-                UpdateLabels();
-                startAgain();
+                //startAgain();
             }
             else if (dealerScore == playerScore)
             {
                 userSum += betsum;
                 betsum = 0;
                 MessageBox.Show("It's a draw!");
-                UpdateLabels();
-                startAgain();
             }
             else
             {
                 userSum -= betsum;
                 betsum = 0;
                 MessageBox.Show("You lost!");
-                UpdateLabels();
-                startAgain();
             }
         }
 
-        private void buttonHIT_Click(object sender, EventArgs e)
+        private async void buttonHIT_Click(object sender, EventArgs e)
         {
             string playerCard = deck.DrawCard();
             playerHand.Add((playerCard, false));
@@ -204,20 +200,22 @@ namespace BlackJack
             UpdateLabels();
             if(playerScore > 21)
             {
+                await Task.Delay(1000);
                 userSum -= betsum;
                 betsum = 0;
                 MessageBox.Show("You lost!");
                 UpdateLabels();
             }
         }
-
         private void revealHand()
         {
-            for (int i = 0; i < dealerHand.Count; i++)
-            {
-                dealerScore += GetCardValue(dealerHand[i].Item1);
-                CardBoxes[i].Image = Image.FromFile(Application.StartupPath + "\\cards\\" + dealerHand[i].Item1);
-            }
+
+             string dealerCard = dealerHand[1].Item1;
+             this.Controls.Remove(CardBoxes[3]);
+             CardBoxes.RemoveAt(3);
+             AddPictureBox(dealerCard, new Point(this.Width * 2 / 7 + 50, this.Height * 1 / 9));
+             hidenCard=0;
+             UpdateLabels();
         }
         private void startAgain()
         {
