@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|c:\\users\\radu\\onedrive\\documents\\github\\blackjack\\blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|c:\\users\\radu\\onedrive\\documents\\github\\blackjack\\blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|c:\\users\\radu\\onedrive\\documents\\github\\blackjack\\blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|c:\\users\\radu\\onedrive\\documents\\github\\blackjack\\blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3809CCC9-D29D-4426-941F-2EC43B43D7B5}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Game.cs",
+              "RelativeDocumentMoniker": "BlackJack\\Game.cs",
+              "ToolTip": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Game.cs",
+              "RelativeToolTip": "BlackJack\\Game.cs",
+              "ViewState": "AQIAANAAAAAAAAAAAAAcwOAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T14:04:07.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Game.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Game.cs",
+              "RelativeDocumentMoniker": "BlackJack\\Game.cs",
+              "ToolTip": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Game.cs [Design]",
+              "RelativeToolTip": "BlackJack\\Game.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T14:04:06.27Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Form1.cs",
+              "RelativeDocumentMoniker": "BlackJack\\Form1.cs",
+              "ToolTip": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Form1.cs",
+              "RelativeToolTip": "BlackJack\\Form1.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAMwFwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T14:04:13.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Form1.cs",
+              "RelativeDocumentMoniker": "BlackJack\\Form1.cs",
+              "ToolTip": "C:\\Users\\Radu\\OneDrive\\Documents\\GitHub\\BlackJack\\BlackJack\\Form1.cs [Design]",
+              "RelativeToolTip": "BlackJack\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-04T14:04:00.232Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

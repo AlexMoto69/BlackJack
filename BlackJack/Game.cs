@@ -70,7 +70,7 @@ namespace BlackJack
                     slideTimer.Interval = 5;
                     slideTimer.Tick += (sender, e) =>
                     {
-                        pictureBox.Location = new Point(pictureBox.Location.X - 11, pictureBox.Location.Y);
+                        pictureBox.Location = new Point(pictureBox.Location.X - 15, pictureBox.Location.Y);
                         if (pictureBox.Location.X <= Position.X)
                         {
                             slideTimer.Stop(); 
@@ -174,19 +174,21 @@ namespace BlackJack
                 userSum += betsum * 2;
                 betsum = 0;
                 MessageBox.Show("You won!");
-                //startAgain();
+                endScreen();
             }
             else if (dealerScore == playerScore)
             {
                 userSum += betsum;
                 betsum = 0;
                 MessageBox.Show("It's a draw!");
+                endScreen();
             }
             else
             {
                 userSum -= betsum;
                 betsum = 0;
                 MessageBox.Show("You lost!");
+                endScreen();
             }
         }
 
@@ -205,6 +207,7 @@ namespace BlackJack
                 betsum = 0;
                 MessageBox.Show("You lost!");
                 UpdateLabels();
+                endScreen();
             }
         }
         private void revealHand()
@@ -216,6 +219,10 @@ namespace BlackJack
              AddPictureBox(dealerCard, new Point(this.Width * 2 / 7 + 50, this.Height * 1 / 9));
              hidenCard=0;
              UpdateLabels();
+        }
+        public void endScreen()
+        {
+            
         }
         private void startAgain()
         {
