@@ -15,16 +15,15 @@ namespace BlackJack
 {
     public partial class Register : Form
     {
-        private string basePath;
-        private string dbFilePath;
-        private string connectionString;
-        private SqlConnection connect;
+        SqlConnection connect;
         public Register()
         {
             InitializeComponent();
-            basePath = AppDomain.CurrentDomain.BaseDirectory;
-            dbFilePath = Path.Combine(basePath, "DatabaseLogin.mdf");
-            connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={dbFilePath};Integrated Security=True";
+            string debugFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+            string solutionFolderPath = Directory.GetParent(debugFolderPath).FullName;
+            string databasePath = Path.Combine(solutionFolderPath, "DatabaseLogin.mdf");
+            MessageBox.Show("Database file path: " + databasePath);
+            string connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True";
             connect = new SqlConnection(connectionString);
         }
 
@@ -49,51 +48,48 @@ namespace BlackJack
                     try
                     {
                         connect.Open();
-                        String checkUsername = "SELECT * FROM admin WHERE username = '"
-                            + signup_username.Text.Trim() + "'";
+                        string checkUsername = "SELECT * FROM [User] WHERE username = @username";
 
                         using (SqlCommand checkUser = new SqlCommand(checkUsername, connect))
                         {
-                            SqlDataAdapter adapter = new SqlDataAdapter(checkUser);
-                            DataTable table = new DataTable();
-                            adapter.Fill(table);
-
-                            if (table.Rows.Count >= 1)
+                            checkUser.Parameters.AddWithValue("@username", signup_username.Text.Trim());
+                            using (SqlDataReader reader = checkUser.ExecuteReader())
                             {
-                                MessageBox.Show(signup_username.Text + " is already exist", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                string insertData = "INSERT INTO admin (username, passowrd) " +
-                                    "VALUES(@username, @pass)";
-
-                                using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                                if (reader.HasRows)
                                 {
-                                    cmd.Parameters.AddWithValue("@username", signup_username.Text.Trim());
-                                    cmd.Parameters.AddWithValue("@pass", signup_password.Text.Trim());
-
-                                    cmd.ExecuteNonQuery();
-
-                                    MessageBox.Show("Registered successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                    // TO SWITCH THE FORM 
-                                    Form1 lForm = new Form1();
-                                    lForm.Show();
-                                    this.Hide();
+                                    MessageBox.Show(signup_username.Text + " already exists", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return; // Exit the method if the username already exists
                                 }
                             }
+                        }
+
+                        // If we reach here, it means the username doesn't exist, so we can proceed with registration
+                        string insertData = "INSERT INTO [User] (username, passowrd) VALUES (@username, @password)";
+
+                        using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                        {
+                            cmd.Parameters.AddWithValue("@username", signup_username.Text.Trim());
+                            cmd.Parameters.AddWithValue("@password", signup_password.Text.Trim());
+
+                            cmd.ExecuteNonQuery();
+
+                            MessageBox.Show("Registered successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // TO SWITCH THE FORM 
+                            Form1 lForm = new Form1();
+                            lForm.Show();
+                            this.Hide();
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error connecting Database: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error connecting Database: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
                         connect.Close();
                     }
                 }
-
             }
         }
 

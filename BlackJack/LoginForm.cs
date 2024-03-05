@@ -17,16 +17,14 @@ namespace BlackJack
 {
     public partial class LoginForm : Form
     {
-        private string basePath;
-        private string dbFilePath;
-        private string connectionString;
-        private SqlConnection connect;
+        SqlConnection connect;
         public LoginForm()
         {
             InitializeComponent();
-            basePath = AppDomain.CurrentDomain.BaseDirectory;
-            dbFilePath = Path.Combine(basePath, "DatabaseLogin.mdf");
-            connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={dbFilePath};Integrated Security=True";
+            string debugFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+            string solutionFolderPath = Directory.GetParent(debugFolderPath).FullName;
+            string databasePath = Path.Combine(solutionFolderPath, "DatabaseLogin.mdf");
+            string connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True";
             connect = new SqlConnection(connectionString);
         }
 
@@ -56,7 +54,7 @@ namespace BlackJack
         {
             if (login_username.Text == "" || login_password.Text == "")
             {
-                MessageBox.Show("Please fil all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -66,11 +64,11 @@ namespace BlackJack
                     {
                         connect.Open();
 
-                        String selectData = "SELECT * FROM admin WHERE username = @username AND passowrd = @pass";
+                        String selectData = "SELECT * FROM [User] WHERE username = @username AND passowrd = @passowrd";
                         using (SqlCommand cmd = new SqlCommand(selectData, connect))
                         {
                             cmd.Parameters.AddWithValue("@username", login_username.Text);
-                            cmd.Parameters.AddWithValue("@pass", login_password.Text);
+                            cmd.Parameters.AddWithValue("@passowrd", login_password.Text);
                             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                             DataTable table = new DataTable();
                             adapter.Fill(table);
@@ -98,6 +96,29 @@ namespace BlackJack
                         connect.Close();
                     }
                 }
+            }
+        }
+
+        private void UpdateMoneyInDatabase(int money, string username)
+        {
+            try
+            {
+                connect.Open();
+                string updateQuery = "UPDATE [User] SET money = @money WHERE username = @username";
+                using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
+                {
+                    cmd.Parameters.AddWithValue("@money", money);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating money in database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                connect.Close();
             }
         }
     }
