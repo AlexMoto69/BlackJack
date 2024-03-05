@@ -34,3 +34,7 @@ C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLo
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLogin_log.ldf
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.LoginForm.resources
 C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Register.resources
+C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLogin.mdf
+C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\bin\Debug\DatabaseLogin_log.ldf
+C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.LoginForm.resources
+C:\Users\Alex\Documents\GitHub\BlackJack\BlackJack\obj\Debug\BlackJack.Register.resources

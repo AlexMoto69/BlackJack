@@ -11,15 +11,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace BlackJack
 {
     public partial class LoginForm : Form
     {
-        SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\DatabaseLogin.mdf;Integrated Security=True");
+        private string basePath;
+        private string dbFilePath;
+        private string connectionString;
+        private SqlConnection connect;
+        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\DatabaseLogin.mdf;Integrated Security=True");
         public LoginForm()
         {
             InitializeComponent();
+            basePath = AppDomain.CurrentDomain.BaseDirectory;
+            dbFilePath = Path.Combine(basePath, "DatabaseLogin.mdf");
+            connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={dbFilePath};Integrated Security=True";
+            connect = new SqlConnection(connectionString);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
