@@ -21,7 +21,6 @@ namespace BlackJack
         private string dbFilePath;
         private string connectionString;
         private SqlConnection connect;
-        //SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Radu\OneDrive\Documents\GitHub\BlackJack\BlackJack\DatabaseLogin.mdf;Integrated Security=True");
         public LoginForm()
         {
             InitializeComponent();

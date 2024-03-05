@@ -41,14 +41,14 @@
             // 
             this.signup_username.Location = new System.Drawing.Point(210, 95);
             this.signup_username.Name = "signup_username";
-            this.signup_username.Size = new System.Drawing.Size(100, 20);
+            this.signup_username.Size = new System.Drawing.Size(143, 20);
             this.signup_username.TabIndex = 0;
             // 
             // signup_password
             // 
-            this.signup_password.Location = new System.Drawing.Point(210, 176);
+            this.signup_password.Location = new System.Drawing.Point(210, 151);
             this.signup_password.Name = "signup_password";
-            this.signup_password.Size = new System.Drawing.Size(100, 20);
+            this.signup_password.Size = new System.Drawing.Size(143, 20);
             this.signup_password.TabIndex = 1;
             // 
             // label1
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 176);
+            this.label2.Location = new System.Drawing.Point(90, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // signup_showPass
             // 
             this.signup_showPass.AutoSize = true;
-            this.signup_showPass.Location = new System.Drawing.Point(273, 202);
+            this.signup_showPass.Location = new System.Drawing.Point(319, 177);
             this.signup_showPass.Name = "signup_showPass";
             this.signup_showPass.Size = new System.Drawing.Size(80, 17);
             this.signup_showPass.TabIndex = 7;
@@ -82,9 +82,9 @@
             // 
             // signup_button
             // 
-            this.signup_button.Location = new System.Drawing.Point(115, 237);
+            this.signup_button.Location = new System.Drawing.Point(201, 201);
             this.signup_button.Name = "signup_button";
-            this.signup_button.Size = new System.Drawing.Size(75, 23);
+            this.signup_button.Size = new System.Drawing.Size(97, 42);
             this.signup_button.TabIndex = 8;
             this.signup_button.Text = "SIGN UP";
             this.signup_button.UseVisualStyleBackColor = true;
@@ -92,9 +92,9 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(310, 274);
+            this.buttonLogin.Location = new System.Drawing.Point(478, 88);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(86, 23);
             this.buttonLogin.TabIndex = 9;
             this.buttonLogin.Text = "Login here";
             this.buttonLogin.UseVisualStyleBackColor = true;

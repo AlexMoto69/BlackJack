@@ -241,11 +241,11 @@
             // 
             this.labelPlayerScore.AutoSize = true;
             this.labelPlayerScore.BackColor = System.Drawing.Color.Transparent;
-            this.labelPlayerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerScore.Font = new System.Drawing.Font("Sitka Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPlayerScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelPlayerScore.Location = new System.Drawing.Point(450, 567);
+            this.labelPlayerScore.Location = new System.Drawing.Point(447, 343);
             this.labelPlayerScore.Name = "labelPlayerScore";
-            this.labelPlayerScore.Size = new System.Drawing.Size(70, 25);
+            this.labelPlayerScore.Size = new System.Drawing.Size(73, 30);
             this.labelPlayerScore.TabIndex = 12;
             this.labelPlayerScore.Text = "label1";
             // 
@@ -253,11 +253,11 @@
             // 
             this.labelDealerScore.AutoSize = true;
             this.labelDealerScore.BackColor = System.Drawing.Color.Transparent;
-            this.labelDealerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDealerScore.Font = new System.Drawing.Font("Sitka Text", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDealerScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelDealerScore.Location = new System.Drawing.Point(450, 38);
+            this.labelDealerScore.Location = new System.Drawing.Point(447, 256);
             this.labelDealerScore.Name = "labelDealerScore";
-            this.labelDealerScore.Size = new System.Drawing.Size(70, 25);
+            this.labelDealerScore.Size = new System.Drawing.Size(73, 30);
             this.labelDealerScore.TabIndex = 13;
             this.labelDealerScore.Text = "label1";
             // 

@@ -39,7 +39,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(264, 190);
+            this.buttonLogin.Location = new System.Drawing.Point(180, 183);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(91, 34);
             this.buttonLogin.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(333, 248);
+            this.buttonRegister.Location = new System.Drawing.Point(447, 73);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(75, 23);
             this.buttonRegister.TabIndex = 5;
@@ -93,7 +93,7 @@
             // login_showPass
             // 
             this.login_showPass.AutoSize = true;
-            this.login_showPass.Location = new System.Drawing.Point(318, 225);
+            this.login_showPass.Location = new System.Drawing.Point(268, 160);
             this.login_showPass.Name = "login_showPass";
             this.login_showPass.Size = new System.Drawing.Size(80, 17);
             this.login_showPass.TabIndex = 6;

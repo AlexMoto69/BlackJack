@@ -85,7 +85,6 @@ namespace BlackJack
             LoginForm Game = new LoginForm();
             Game.Show();
             this.Hide();
-
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
