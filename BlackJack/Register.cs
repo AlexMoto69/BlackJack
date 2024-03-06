@@ -64,19 +64,21 @@ namespace BlackJack
                         }
 
                         // If we reach here, it means the username doesn't exist, so we can proceed with registration
-                        string insertData = "INSERT INTO [User] (username, passowrd) VALUES (@username, @password)";
+                        string insertData = "INSERT INTO [User] (username, passowrd, money) VALUES (@username, @password, @money)";
 
                         using (SqlCommand cmd = new SqlCommand(insertData, connect))
                         {
                             cmd.Parameters.AddWithValue("@username", signup_username.Text.Trim());
                             cmd.Parameters.AddWithValue("@password", signup_password.Text.Trim());
+                            cmd.Parameters.AddWithValue("@money", 1000);
+
 
                             cmd.ExecuteNonQuery();
 
                             MessageBox.Show("Registered successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             // TO SWITCH THE FORM 
-                            Form1 lForm = new Form1();
+                            LoginForm lForm = new LoginForm();
                             lForm.Show();
                             this.Hide();
                         }

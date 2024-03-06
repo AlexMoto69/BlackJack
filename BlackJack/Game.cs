@@ -1,59 +1,77 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace BlackJack
 {
     public partial class Game : Form
     {
+        SqlConnection connect;
         List<(string, bool)> playerHand = new List<(string, bool)>();
         List<(string, bool)> dealerHand = new List<(string, bool)>();
         Deck deck = new Deck();
         List<PictureBox> CardBoxes = new List<PictureBox>();
         private Point lastPoint;
         private int betsum = 0;
-        private int userSum = 200;
+        private int userSum = 1000;
         int playerScore = 0;
         int dealerScore = 0;
         int hidenCard;
         int ivalue = 100;
         int ivalue2 = 100;
-        string EndMessage="Place Your Bet";
+        string EndMessage = "Place Your Bet";
+        string usernameString;
         int ok = 1;
         int ok2 = 0;
         public Game()
         {
             InitializeComponent();
+            string debugFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+            string solutionFolderPath = Directory.GetParent(debugFolderPath).FullName;
+            string databasePath = Path.Combine(solutionFolderPath, "DatabaseLogin.mdf");
+            string connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True";
+            connect = new SqlConnection(connectionString);
             labelBet.BackColor = Color.Transparent;
             labelInitial.BackColor = Color.Transparent;
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
             endScreen();
+
+            ///
+
+            LoginForm loginForm = new LoginForm();
+            // Retrieve the username string from LoginForm and store it in usernameString
+            usernameString = loginForm.UsernameText;
+
+            ///
+
         }
-        
+
         private int GetCardValue(string name)
         {
-            string number = name.Substring(name.Length-5, 1);
+            string number = name.Substring(name.Length - 5, 1);
             if (number == "A")
                 return 11;
-            int number1  = int.Parse(number);
-                if (number1 == 0)
-                {
-                    return 10;
+            int number1 = int.Parse(number);
+            if (number1 == 0)
+            {
+                return 10;
 
-                }
-                else
-                {
-                    return number1;
+            }
+            else
+            {
+                return number1;
             }
         }
         private void AddPictureBox(string imageName, Point Position)
@@ -95,7 +113,7 @@ namespace BlackJack
                 pictureBox.Image = Image.FromFile(Application.StartupPath + "\\cards\\" + imageName);
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Size = new System.Drawing.Size(128, 185);
-                pictureBox.Location = new Point(Position.X, 0-Position.Y);
+                pictureBox.Location = new Point(Position.X, 0 - Position.Y);
                 pictureBox.BackColor = Color.Transparent;
                 this.Controls.Add(pictureBox);
                 pictureBox.BringToFront();
@@ -104,7 +122,7 @@ namespace BlackJack
                 slideTimer.Interval = 5;
                 slideTimer.Tick += (sender, e) =>
                 {
-                    pictureBox.Location = new Point(pictureBox.Location.X, pictureBox.Location.Y+15);
+                    pictureBox.Location = new Point(pictureBox.Location.X, pictureBox.Location.Y + 15);
                     if (pictureBox.Location.Y >= Position.Y)
                     {
                         slideTimer.Stop();
@@ -121,7 +139,7 @@ namespace BlackJack
         private void UpdateLabels()
         {
             labelPlayerScore.Text = CalculateScore(playerHand).ToString();
-            labelDealerScore.Text = (CalculateScore(dealerHand)-hidenCard).ToString();
+            labelDealerScore.Text = (CalculateScore(dealerHand) - hidenCard).ToString();
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
         }
@@ -162,7 +180,7 @@ namespace BlackJack
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if(ok2 == 0)
+            if (ok2 == 0)
             {
                 betsum += 10;
                 userSum -= 10;
@@ -172,7 +190,7 @@ namespace BlackJack
 
         private void button25_Click(object sender, EventArgs e)
         {
-            if(ok2 == 0)
+            if (ok2 == 0)
             {
                 betsum += 25;
                 userSum -= 25;
@@ -182,7 +200,7 @@ namespace BlackJack
 
         private void button50_Click(object sender, EventArgs e)
         {
-            if(ok2 == 0)
+            if (ok2 == 0)
             {
                 betsum += 50;
                 userSum -= 50;
@@ -192,7 +210,7 @@ namespace BlackJack
 
         private void button100_Click(object sender, EventArgs e)
         {
-            if(ok2 == 0)
+            if (ok2 == 0)
             {
                 betsum += 100;
                 userSum -= 100;
@@ -301,7 +319,7 @@ namespace BlackJack
             ok = 1;
             Panel panel = new Panel();
             panel.BackColor = Color.DarkSlateGray;
-            panel.Size = new Size(this.Width/2, this.Height /2);
+            panel.Size = new Size(this.Width / 2, this.Height / 2);
             panel.Location = new Point((this.Width - panel.Width) / 2, (this.Height - panel.Height) / 2);
             panel.BringToFront();
 

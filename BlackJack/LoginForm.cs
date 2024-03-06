@@ -28,6 +28,12 @@ namespace BlackJack
             connect = new SqlConnection(connectionString);
         }
 
+        /// not sure if this function is good 
+        public string UsernameText
+        {
+            get { return login_username.Text; }
+        }
+
         private void LoginForm_Load(object sender, EventArgs e)
         {
 
