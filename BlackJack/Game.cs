@@ -120,7 +120,7 @@ namespace BlackJack
             }
         }
 
-        private void ToggleLeaderboardPanelVisibility()
+        private void ShowLeaderboardButton_Click(object sender, EventArgs e)
         {
             leaderboardPanel.Visible = !leaderboardPanel.Visible;
             leaderboardPanel.BringToFront();
@@ -128,11 +128,6 @@ namespace BlackJack
             {
                 UpdateLeaderboardPanel();
             }
-        }
-
-        private void ShowLeaderboardButton_Click(object sender, EventArgs e)
-        {
-            ToggleLeaderboardPanelVisibility();
         }
 
         private void ShopButton_Click(object sender, EventArgs e)
@@ -485,10 +480,11 @@ namespace BlackJack
 
         private void background2_Click(object sender, EventArgs e)
         {
-            if(userSum>10000)
+            if(userSum>1)
             {
-                userSum -= 10000;
+                userSum -= 1;
                 user.UpdateUserBackground("table2.png");
+                user.LoadUserInformation();
                 string binFolderPath = Directory.GetParent(Application.StartupPath).FullName;
                 string backgroundPath = Path.Combine(binFolderPath, user.Background);
                 table.BackgroundImage = Image.FromFile(backgroundPath);
@@ -500,6 +496,7 @@ namespace BlackJack
         private void background1_Click(object sender, EventArgs e)
         {
             user.UpdateUserBackground("table.jpg");
+            user.LoadUserInformation();
             string binFolderPath = Directory.GetParent(Application.StartupPath).FullName;
             string backgroundPath = Path.Combine(binFolderPath, user.Background);
             table.BackgroundImage = Image.FromFile(backgroundPath);

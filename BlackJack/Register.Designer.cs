@@ -115,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::BlackJack.Properties.Resources.bjlogo;
-            this.pictureBox1.Location = new System.Drawing.Point(154, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(160, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(81, 73);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,7 +198,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.signup_password);
             this.Controls.Add(this.signup_username);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Register";
             this.Text = "Register";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

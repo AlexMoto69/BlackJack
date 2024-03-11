@@ -206,29 +206,40 @@
             // 
             // ShopButton
             // 
+            this.ShopButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShopButton.BackgroundImage = global::BlackJack.Properties.Resources.cart2;
+            this.ShopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ShopButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShopButton.FlatAppearance.BorderSize = 0;
+            this.ShopButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ShopButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ShopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShopButton.ForeColor = System.Drawing.Color.Transparent;
             this.ShopButton.Location = new System.Drawing.Point(12, 618);
             this.ShopButton.Name = "ShopButton";
             this.ShopButton.Size = new System.Drawing.Size(54, 49);
             this.ShopButton.TabIndex = 17;
-            this.ShopButton.Text = "Shop";
-            this.ShopButton.UseVisualStyleBackColor = true;
+            this.ShopButton.UseVisualStyleBackColor = false;
             this.ShopButton.Click += new System.EventHandler(this.ShopButton_Click);
             // 
             // ShowLeaderboardButton
             // 
             this.ShowLeaderboardButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShowLeaderboardButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShowLeaderboardButton.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShowLeaderboardButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ShowLeaderboardButton.Location = new System.Drawing.Point(452, 41);
+            this.ShowLeaderboardButton.Location = new System.Drawing.Point(12, 41);
             this.ShowLeaderboardButton.Name = "ShowLeaderboardButton";
-            this.ShowLeaderboardButton.Size = new System.Drawing.Size(58, 45);
+            this.ShowLeaderboardButton.Size = new System.Drawing.Size(82, 34);
             this.ShowLeaderboardButton.TabIndex = 16;
-            this.ShowLeaderboardButton.Text = "leaderboard";
+            this.ShowLeaderboardButton.Text = "Leaderboard";
             this.ShowLeaderboardButton.UseVisualStyleBackColor = false;
             this.ShowLeaderboardButton.Click += new System.EventHandler(this.ShowLeaderboardButton_Click);
             // 
             // buttonStand
             // 
             this.buttonStand.BackColor = System.Drawing.Color.Green;
+            this.buttonStand.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonStand.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStand.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonStand.Location = new System.Drawing.Point(888, 379);
@@ -242,7 +253,7 @@
             // buttonHIT
             // 
             this.buttonHIT.BackColor = System.Drawing.Color.Red;
-            this.buttonHIT.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.buttonHIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonHIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHIT.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.buttonHIT.Location = new System.Drawing.Point(888, 317);
@@ -306,6 +317,7 @@
             this.button100.BackColor = System.Drawing.Color.Transparent;
             this.button100.BackgroundImage = global::BlackJack.Properties.Resources.black_chip;
             this.button100.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button100.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button100.FlatAppearance.BorderSize = 0;
             this.button100.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -324,6 +336,7 @@
             this.button50.BackColor = System.Drawing.Color.Transparent;
             this.button50.BackgroundImage = global::BlackJack.Properties.Resources.orange_chip;
             this.button50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button50.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button50.FlatAppearance.BorderSize = 0;
             this.button50.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -354,6 +367,7 @@
             this.button25.BackColor = System.Drawing.Color.Transparent;
             this.button25.BackgroundImage = global::BlackJack.Properties.Resources.red_chip;
             this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button25.FlatAppearance.BorderSize = 0;
             this.button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -385,6 +399,7 @@
             this.button10.BackColor = System.Drawing.Color.Transparent;
             this.button10.BackgroundImage = global::BlackJack.Properties.Resources.blue_chip;
             this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button10.FlatAppearance.BorderSize = 0;
             this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;

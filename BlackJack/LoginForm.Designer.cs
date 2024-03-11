@@ -198,7 +198,9 @@
             this.Controls.Add(this.login_password);
             this.Controls.Add(this.login_username);
             this.Controls.Add(this.buttonLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = " Log in";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
