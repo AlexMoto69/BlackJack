@@ -35,6 +35,13 @@
             this.Minimize = new System.Windows.Forms.PictureBox();
             this.Window = new System.Windows.Forms.PictureBox();
             this.table = new System.Windows.Forms.Panel();
+            this.ShopPanel = new System.Windows.Forms.Panel();
+            this.cost2 = new System.Windows.Forms.Label();
+            this.cost = new System.Windows.Forms.Label();
+            this.background2 = new System.Windows.Forms.PictureBox();
+            this.background1 = new System.Windows.Forms.PictureBox();
+            this.ShopButton = new System.Windows.Forms.Button();
+            this.ShowLeaderboardButton = new System.Windows.Forms.Button();
             this.buttonStand = new System.Windows.Forms.Button();
             this.buttonHIT = new System.Windows.Forms.Button();
             this.labelDealerScore = new System.Windows.Forms.Label();
@@ -53,6 +60,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Minimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Window)).BeginInit();
             this.table.SuspendLayout();
+            this.ShopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.background2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelDrag
@@ -119,6 +129,9 @@
             // 
             this.table.BackgroundImage = global::BlackJack.Properties.Resources.table;
             this.table.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.table.Controls.Add(this.ShopPanel);
+            this.table.Controls.Add(this.ShopButton);
+            this.table.Controls.Add(this.ShowLeaderboardButton);
             this.table.Controls.Add(this.buttonStand);
             this.table.Controls.Add(this.buttonHIT);
             this.table.Controls.Add(this.labelDealerScore);
@@ -136,6 +149,82 @@
             this.table.Name = "table";
             this.table.Size = new System.Drawing.Size(1009, 679);
             this.table.TabIndex = 10;
+            // 
+            // ShopPanel
+            // 
+            this.ShopPanel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.ShopPanel.Controls.Add(this.cost2);
+            this.ShopPanel.Controls.Add(this.cost);
+            this.ShopPanel.Controls.Add(this.background2);
+            this.ShopPanel.Controls.Add(this.background1);
+            this.ShopPanel.Location = new System.Drawing.Point(46, 362);
+            this.ShopPanel.Name = "ShopPanel";
+            this.ShopPanel.Size = new System.Drawing.Size(222, 276);
+            this.ShopPanel.TabIndex = 18;
+            // 
+            // cost2
+            // 
+            this.cost2.AutoSize = true;
+            this.cost2.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cost2.Location = new System.Drawing.Point(20, 237);
+            this.cost2.Name = "cost2";
+            this.cost2.Size = new System.Drawing.Size(75, 19);
+            this.cost2.TabIndex = 3;
+            this.cost2.Text = "10000$";
+            // 
+            // cost
+            // 
+            this.cost.AutoSize = true;
+            this.cost.Font = new System.Drawing.Font("MS Reference Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cost.Location = new System.Drawing.Point(20, 110);
+            this.cost.Name = "cost";
+            this.cost.Size = new System.Drawing.Size(46, 19);
+            this.cost.TabIndex = 2;
+            this.cost.Text = "Free";
+            // 
+            // background2
+            // 
+            this.background2.Image = global::BlackJack.Properties.Resources.table2;
+            this.background2.Location = new System.Drawing.Point(20, 153);
+            this.background2.Name = "background2";
+            this.background2.Size = new System.Drawing.Size(176, 77);
+            this.background2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background2.TabIndex = 1;
+            this.background2.TabStop = false;
+            this.background2.Click += new System.EventHandler(this.background2_Click);
+            // 
+            // background1
+            // 
+            this.background1.Image = global::BlackJack.Properties.Resources.table;
+            this.background1.Location = new System.Drawing.Point(20, 23);
+            this.background1.Name = "background1";
+            this.background1.Size = new System.Drawing.Size(176, 80);
+            this.background1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.background1.TabIndex = 0;
+            this.background1.TabStop = false;
+            this.background1.Click += new System.EventHandler(this.background1_Click);
+            // 
+            // ShopButton
+            // 
+            this.ShopButton.Location = new System.Drawing.Point(12, 618);
+            this.ShopButton.Name = "ShopButton";
+            this.ShopButton.Size = new System.Drawing.Size(54, 49);
+            this.ShopButton.TabIndex = 17;
+            this.ShopButton.Text = "Shop";
+            this.ShopButton.UseVisualStyleBackColor = true;
+            this.ShopButton.Click += new System.EventHandler(this.ShopButton_Click);
+            // 
+            // ShowLeaderboardButton
+            // 
+            this.ShowLeaderboardButton.BackColor = System.Drawing.Color.Transparent;
+            this.ShowLeaderboardButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ShowLeaderboardButton.Location = new System.Drawing.Point(452, 41);
+            this.ShowLeaderboardButton.Name = "ShowLeaderboardButton";
+            this.ShowLeaderboardButton.Size = new System.Drawing.Size(58, 45);
+            this.ShowLeaderboardButton.TabIndex = 16;
+            this.ShowLeaderboardButton.Text = "leaderboard";
+            this.ShowLeaderboardButton.UseVisualStyleBackColor = false;
+            this.ShowLeaderboardButton.Click += new System.EventHandler(this.ShowLeaderboardButton_Click);
             // 
             // buttonStand
             // 
@@ -328,6 +417,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Window)).EndInit();
             this.table.ResumeLayout(false);
             this.table.PerformLayout();
+            this.ShopPanel.ResumeLayout(false);
+            this.ShopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.background2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.background1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -352,5 +445,12 @@
         private System.Windows.Forms.Button buttonHIT;
         private System.Windows.Forms.Button buttonStand;
         private System.Windows.Forms.Panel table;
+        private System.Windows.Forms.Button ShowLeaderboardButton;
+        private System.Windows.Forms.Button ShopButton;
+        private System.Windows.Forms.Panel ShopPanel;
+        private System.Windows.Forms.PictureBox background2;
+        private System.Windows.Forms.PictureBox background1;
+        private System.Windows.Forms.Label cost2;
+        private System.Windows.Forms.Label cost;
     }
 }

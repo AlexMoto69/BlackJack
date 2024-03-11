@@ -88,6 +88,7 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +149,7 @@
     <None Include="bin\bjlogo.png" />
     <None Include="bin\passlogo.png" />
     <None Include="bin\userlogo.png" />
+    <Content Include="bin\table2.png" />
     <Content Include="DatabaseLogin.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -17,28 +17,14 @@ namespace BlackJack
 {
     public partial class LoginForm : Form
     {
-        SqlConnection connect;
         public LoginForm()
         {
             InitializeComponent();
-            string debugFolderPath = Directory.GetParent(Application.StartupPath).FullName;
-            string solutionFolderPath = Directory.GetParent(debugFolderPath).FullName;
-            string databasePath = Path.Combine(solutionFolderPath, "DatabaseLogin.mdf");
-            string connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True";
-            connect = new SqlConnection(connectionString);
         }
-
-        /// not sure if this function is good 
         public string UsernameText
         {
             get { return login_username.Text; }
         }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonRegister_Click(object sender, EventArgs e)
         {
             Register rForm = new Register();
@@ -58,73 +44,25 @@ namespace BlackJack
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (login_username.Text == "" || login_password.Text == "")
-            {
-                MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (connect.State != ConnectionState.Open)
-                {
-                    try
-                    {
-                        connect.Open();
-
-                        String selectData = "SELECT * FROM [User] WHERE username = @username AND passowrd = @passowrd";
-                        using (SqlCommand cmd = new SqlCommand(selectData, connect))
-                        {
-                            cmd.Parameters.AddWithValue("@username", login_username.Text);
-                            cmd.Parameters.AddWithValue("@passowrd", login_password.Text);
-                            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                            DataTable table = new DataTable();
-                            adapter.Fill(table);
-
-                            if (table.Rows.Count >= 1)
-                            {
-                                MessageBox.Show("Logged In successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                Game mForm = new Game();
-                                mForm.Show();
-                                this.Hide();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Incorrect Username/Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error Connecting: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        connect.Close();
-                    }
-                }
-            }
-        }
-
-        private void UpdateMoneyInDatabase(int money, string username)
-        {
+            string username = login_username.Text;
+            string password = login_password.Text;
             try
             {
-                connect.Open();
-                string updateQuery = "UPDATE [User] SET money = @money WHERE username = @username";
-                using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
+                if (User.UserExists(username, password))
                 {
-                    cmd.Parameters.AddWithValue("@money", money);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Logged In successfully", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Game mForm = new Game(new User(username, password));
+                    mForm.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Username/Password", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating money in database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                connect.Close();
+                MessageBox.Show("Login failed: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

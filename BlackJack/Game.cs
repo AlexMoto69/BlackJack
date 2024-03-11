@@ -12,19 +12,22 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Runtime.ConstrainedExecution;
 
 namespace BlackJack
 {
     public partial class Game : Form
     {
-        SqlConnection connect;
+        private User user;
+        private Panel leaderboardPanel;
         List<(string, bool)> playerHand = new List<(string, bool)>();
         List<(string, bool)> dealerHand = new List<(string, bool)>();
+        private List<Label> userLabels = new List<Label>();
         Deck deck = new Deck();
         List<PictureBox> CardBoxes = new List<PictureBox>();
         private Point lastPoint;
         private int betsum = 0;
-        private int userSum = 1000;
+        private int userSum;
         int playerScore = 0;
         int dealerScore = 0;
         int hidenCard;
@@ -34,28 +37,108 @@ namespace BlackJack
         string usernameString;
         int ok = 1;
         int ok2 = 0;
-        public Game()
+        public Game(User user)
         {
             InitializeComponent();
-            string debugFolderPath = Directory.GetParent(Application.StartupPath).FullName;
-            string solutionFolderPath = Directory.GetParent(debugFolderPath).FullName;
-            string databasePath = Path.Combine(solutionFolderPath, "DatabaseLogin.mdf");
-            string connectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={databasePath};Integrated Security=True";
-            connect = new SqlConnection(connectionString);
+            this.user = user;
+            user.LoadUserInformation();
+            userSum = user.Money;
+            string binFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+            string backgroundPath = Path.Combine(binFolderPath, user.Background);
+            table.BackgroundImage= Image.FromFile(backgroundPath);
             labelBet.BackColor = Color.Transparent;
             labelInitial.BackColor = Color.Transparent;
             MoneyText.Text = userSum.ToString();
             MoneyBet.Text = betsum.ToString();
             endScreen();
+            InitializeLeaderboardPanel();
+            ShopPanel.Visible = false;
+        }
 
-            ///
+        private void InitializeLeaderboardPanel()
+        {
+            leaderboardPanel = new Panel();
+            leaderboardPanel.BackColor = Color.DimGray;
+            leaderboardPanel.Size = new Size(300, 200);
+            leaderboardPanel.Location = new Point((this.Width - leaderboardPanel.Width) / 2, (this.Height - leaderboardPanel.Height) / 2);
+            leaderboardPanel.AutoScroll = true;
 
-            LoginForm loginForm = new LoginForm();
-            // Retrieve the username string from LoginForm and store it in usernameString
-            usernameString = loginForm.UsernameText;
+            Label titleLabel = new Label();
+            titleLabel.Text = "Leaderboard";
+            titleLabel.Font = new Font("Comic Sans MS", 20, FontStyle.Bold);
+            titleLabel.ForeColor = Color.White;
+            titleLabel.AutoSize = true;
+            titleLabel.Location = new Point((leaderboardPanel.Width - titleLabel.Width) / 3, 10);
+            leaderboardPanel.Controls.Add(titleLabel);
+            this.Controls.Add(leaderboardPanel);
+            leaderboardPanel.Visible = false;
+        }
 
-            ///
+        private void UpdateLeaderboardPanel()
+        {
+            List<(string, int)> userData = user.RetrieveUserDataFromDatabase();
+            PopulateLeaderboardPanel(userData);
+        }
 
+        private void PopulateLeaderboardPanel(List<(string, int)> userData)
+        {
+
+            int yPosition = 50;
+
+            foreach (Label label in userLabels)
+            {
+                leaderboardPanel.Controls.Remove(label);
+            }
+            userLabels.Clear();
+
+            foreach ((string username, int money) in userData)
+            {
+                Label nameLabel = new Label();
+                nameLabel.Text = username;
+                nameLabel.Location = new Point(20, yPosition);
+                nameLabel.ForeColor = Color.White;
+                nameLabel.Font = new Font("Comic Sans MS", 12, FontStyle.Bold);
+                userLabels.Add(nameLabel);
+
+                Label moneyLabel = new Label();
+                moneyLabel.Text = money.ToString();
+                moneyLabel.Location = new Point(150, yPosition);
+                moneyLabel.ForeColor = Color.White;
+                moneyLabel.Font = new Font("Comic Sans MS", 12, FontStyle.Bold);
+                userLabels.Add(moneyLabel);
+
+                if (username == user.Username)
+                {
+                    nameLabel.Font = new Font(nameLabel.Font, FontStyle.Underline);
+                    moneyLabel.Font = new Font(moneyLabel.Font, FontStyle.Underline);
+                }
+
+                leaderboardPanel.Controls.Add(nameLabel);
+                leaderboardPanel.Controls.Add(moneyLabel);
+
+                yPosition += 30;
+            }
+        }
+
+        private void ToggleLeaderboardPanelVisibility()
+        {
+            leaderboardPanel.Visible = !leaderboardPanel.Visible;
+            leaderboardPanel.BringToFront();
+            if (leaderboardPanel.Visible)
+            {
+                UpdateLeaderboardPanel();
+            }
+        }
+
+        private void ShowLeaderboardButton_Click(object sender, EventArgs e)
+        {
+            ToggleLeaderboardPanelVisibility();
+        }
+
+        private void ShopButton_Click(object sender, EventArgs e)
+        {
+            ShopPanel.Visible = !ShopPanel.Visible;
+            ShopPanel.BringToFront();
         }
 
         private int GetCardValue(string name)
@@ -352,6 +435,7 @@ namespace BlackJack
             this.Controls.Add(panel);
             UpdateLabels();
             panel.BringToFront();
+            user.UpdateUserMoney(userSum);
         }
         private void startAgain()
         {
@@ -397,6 +481,28 @@ namespace BlackJack
                 }
                 UpdateLabels();
             }
+        }
+
+        private void background2_Click(object sender, EventArgs e)
+        {
+            if(userSum>10000)
+            {
+                userSum -= 10000;
+                user.UpdateUserBackground("table2.png");
+                string binFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+                string backgroundPath = Path.Combine(binFolderPath, user.Background);
+                table.BackgroundImage = Image.FromFile(backgroundPath);
+                UpdateLabels();
+                user.UpdateUserMoney(userSum);
+            }
+        }
+
+        private void background1_Click(object sender, EventArgs e)
+        {
+            user.UpdateUserBackground("table.jpg");
+            string binFolderPath = Directory.GetParent(Application.StartupPath).FullName;
+            string backgroundPath = Path.Combine(binFolderPath, user.Background);
+            table.BackgroundImage = Image.FromFile(backgroundPath);
         }
     }
 }
